@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lowdb": "0.10.2"
+    "babel": "5.8.29",
+    "lodash": "3.10.1",
+    "moment": "2.10.6"
   }
 }
