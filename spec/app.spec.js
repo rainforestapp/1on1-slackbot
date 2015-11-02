@@ -33,4 +33,12 @@ describe('App', () => {
       expect(app.createPairs).toHaveBeenCalledWith(people, 0.5);
     });
   });
+
+  describe('.createPairs', () => {
+    describe('with an empty list of members', () => {
+      it('returns an empty list', () => {
+        expect(app.createPairs([], 1)).toEqual([]);
+      });
+    });
+  });
 });
