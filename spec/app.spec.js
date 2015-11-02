@@ -23,4 +23,14 @@ describe('App', () => {
       });
     });
   });
+
+  describe('.createAssignments', () => {
+    it('calls createPairs with members and correct shift', () => {
+      let people = ['@alice', '@bob'];
+      spyOn(app, 'createPairs');
+      spyOn(app, 'currentWeek').and.returnValue(45);
+      app.createAssignments(people);
+      expect(app.createPairs).toHaveBeenCalledWith(people, 0.5);
+    });
+  });
 });

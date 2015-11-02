@@ -5,6 +5,10 @@ const currentMembers = ['adrian', 'julian', 'lita', 'akhila', 'edward'];
 
 export class App {
 
+  currentWeek() {
+    return moment().weeks();
+  }
+
   createPairs(members = [], shift) {
     let pairs = [];
     let usedIndexes = [];
@@ -26,14 +30,10 @@ export class App {
   }
 
   createAssignments(members) {
-    const currentDate = moment();
-
     // fortnightly rota
-    let shift = (Math.floor(currentDate.weeks()) / 2) % (members.length - 1);
+    let shift = (Math.floor(this.currentWeek()) / 2) % (members.length - 1);
 
-    if(shift === 0){
-      shift++;
-    }
+    if (shift === 0) { shift++; }
 
     return this.createPairs(members, shift);
   }
