@@ -1,22 +1,22 @@
 import moment from 'moment';
 const currentMembers = ['adrian', 'julian', 'lita', 'akhila', 'edward'];
-import clone from 'lodash/lang/clone';
+import includes from 'lodash';
 
 function createPairs(members, shift) {
   let pairs = [];
-  let usedIndexes = new Set();
+  let usedIndexes = [];
 
   members.forEach(function(member, index) {
     let partnerIndex = (index + shift) % (members.length);
 
-    if(!usedIndexes.has(index) && !usedIndexes.has(partnerIndex)){
+    if(!_.includes(usedIndexes, index) && !_.includes(usedIndexes, partnerIndex)) {
       pairs.push([member, members[partnerIndex]]);
-      usedIndexes.add(index);
-      usedIndexes.add(partnerIndex);
+      usedIndexes.push(index);
+      usedIndexes.push(partnerIndex);
     }else if(members.length - usedIndexes.size === 1){
       pairs.push([member, members[partnerIndex]]);
-      usedIndexes.add(index);
-      usedIndexes.add(partnerIndex);
+      usedIndexes.push(index);
+      usedIndexes.push(partnerIndex);
     }
   });
   return pairs;
