@@ -40,5 +40,12 @@ describe('App', () => {
         expect(app.createPairs([], 1)).toEqual([]);
       });
     });
+
+    describe('with a list of members', () => {
+      xit('returns pairs of members that should have a 1on1', () => {
+        let people = ['@alice', '@bob'];
+        expect(app.createPairs(people, 0.5)).toEqual([['@alice', '@bob']]);
+      });
+    });
   });
 });
