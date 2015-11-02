@@ -48,4 +48,12 @@ describe('App', () => {
       });
     });
   });
+
+  describe('.stringifyAssignments', () => {
+    describe('with no pairs', () => {
+      it('returns an empty string', () => {
+        expect(app.stringifyAssignments([])).toEqual('');
+      });
+    });
+  });
 });
