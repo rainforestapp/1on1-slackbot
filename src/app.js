@@ -35,7 +35,7 @@ export class App {
       shift++;
     }
 
-    return createPairs(members, shift);
+    return this.createPairs(members, shift);
   }
 
   stringifyAssignments(pairs) {
@@ -59,6 +59,11 @@ export class App {
   atMention(people) {
     return people.map(person => `@${person}`);
   }
+
+  logWeeklyAnnouncement() {
+    console.log(this.thisWeekAnnouncement(this.stringifyAssignments(this.createAssignments(this.atMention(currentMembers)))));
+  }
 }
 
-//console.log(thisWeekAnnouncement(stringifyAssignments(createAssignments(atMention(currentMembers)))));
+let app = new App();
+app.logWeeklyAnnouncement();
