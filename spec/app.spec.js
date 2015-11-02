@@ -55,5 +55,28 @@ describe('App', () => {
         expect(app.stringifyAssignments([])).toEqual('');
       });
     });
+
+    describe('with one pair', () => {
+      it('returns the formatted pair with a period', () => {
+        let pairs = [['@alice', '@bob']];
+        expect(app.stringifyAssignments(pairs)).toEqual('@alice with @bob.');
+      });
+    });
+
+    describe('with two pairs', () => {
+      it('returns the pairs separated by a newline and "and"', () => {
+        let pairs = [['@alice', '@bob'], ['@charlie', '@diane']];
+        let result = app.stringifyAssignments(pairs);
+        expect(result).toEqual('@alice with @bob and \n@charlie with @diane.');
+      });
+    });
+
+    describe('with more than two pairs', () => {
+      it('returns the pairs separated with newlines and commas', () => {
+        let pairs = [['@a', '@b'], ['@c', '@d'], ['@e', '@f']];
+        let result = app.stringifyAssignments(pairs);
+        expect(result).toEqual('@a with @b, \n@c with @d and \n@e with @f.');
+      });
+    });
   });
 });
