@@ -1,5 +1,5 @@
 import moment from 'moment';
-import includes from 'lodash';
+import _ from 'lodash';
 
 const currentMembers = ['adrian', 'julian', 'lita', 'akhila', 'edward'];
 
