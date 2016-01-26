@@ -26,7 +26,7 @@ export function createAssignments(members) {
   const currentDate = moment();
 
   // fortnightly rota
-  let shift = (Math.floor(currentDate.weeks()) / 2) % (members.length - 1);
+  let shift = (Math.floor(currentDate.weeks() / 2)) % (members.length - 1);
 
   if(shift === 0){
     shift++;
@@ -41,7 +41,7 @@ export function stringifyAssignments(pairs) {
     if(i === pairs.length -2){
       result += ' and ';
     }else if(i >= pairs.length -1){
-      result += '.';
+      result += '';
     }else{
       result += ', ';
     }
